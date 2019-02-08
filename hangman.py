@@ -2,7 +2,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QSp
 from PyQt5.QtWidgets import QLabel, QPushButton, QLineEdit, QTextEdit, QRadioButton
 from PyQt5.QtCore import Qt, QTimer
 from PyQt5.QtGui import QMovie
-from Networking import Networking
+from networking import Networking
 
 def create_widget_container(widgets, vertical = True):
     """ The method to accept argument of list of widget and add it into the layout of vertical(default to vertical) else horizontal if specify and return the widget containing the layout """
@@ -52,6 +52,9 @@ class Hangman():
         self.timer.start(100)
         self.timer.timeout.connect(self.tick)
         self.player = 0
+        self.attempt = 1
+        self.currentGuess = []
+        self.guessAttempted = []
     
     def run(self):
         """ Method that start the application main loop """
@@ -85,6 +88,7 @@ class Hangman():
 
         self.game_box = game_box
         self.game_pane = game_pane
+        self.inp_character = inp_character
     
     def create_main_pane(self):
         # Create a pane with the choice to connect or listen to others
@@ -189,6 +193,7 @@ class Hangman():
 
         self.connection = Networking.Connection(self.inp_connection_address.text(), 5000)
         print("Connecting into port 5000")
+        self.player = 1
     
     def btn_listen_clicked(self):
         # When listen button is clicked, show the selection pane
@@ -197,6 +202,7 @@ class Hangman():
         print("Listening on port 5000")
 
         self.accepting = True
+        self.player = 2
     
     def btn_giver_clicked(self):
         self.window.setCentralWidget(self.giver_pane)
@@ -205,14 +211,22 @@ class Hangman():
         self.window.setCentralWidget(self.guesser_pane)
 
     def send_character(self):
-        pass
+        self.character = self.inp_character.text()
+        self.inp_character.setText("")
+        
+        print("Input character is " + self.character)
+        self.status_box.append("_ " * len(self.character))
+        self.connection.send(bytes(self.character, 'utf-8'))
 
     def send_word(self):
         self.word = self.inp_word_enter.text()
+        for i in range(0, len(self.word)):
+            self.currentGuess.append("_ ")
 
         self.window.setCentralWidget(self.status_pane)
-        print("_ " * len(self.word))
-        self.status_box.append("_ " * len(self.word))
+        self.status_box.append("The word you have given: " + self.word)
+        temp = "_ " * len(self.word)
+        self.connection.send(bytes(temp, 'utf-8'))
 
     def tick(self):
 
@@ -226,11 +240,34 @@ class Hangman():
         elif self.receiving:
             they_sent = self.connection.try_receive()
             if they_sent is not None:
-                display = 'Them: ' + str(they_sent, 'utf-8')
-                self.game_box.append(display)
+                word_recv = str(they_sent, 'utf-8')
+                if self.player == 1:
+                    self.status_box.append("Guesser attempt : " + str(self.attempt))
+                    self.attempt += 1
+                    self.guessAttempted.append(word_recv + " ")
+                    output = "Attempted : " + ','.join(self.guessAttempted) + '\n'
+                    self.connection.send(str.encode(output))
+                    if self.compare_word(word_recv):
+                        self.connection.send(bytes("Correctly Guess for : ", 'utf-8'))
+                    else:
+                        self.connection.send(bytes("Wrongly Guess for : ", 'utf-8'))
+                    self.connection.send(bytes(''.join(self.currentGuess), 'utf-8'))
+                    self.status_box.append(word_recv)
+                else:
+                    self.game_box.append(word_recv)
+                    self.window.setCentralWidget(self.game_pane)
 
         elif self.connection is not None:
             self.connection.try_connect()
             if self.connection.connected:
                 self.receiving = True
                 print("Connected!!")
+        
+    def compare_word(self, guess):
+        if guess in self.word:
+            indices = [i for i, x in enumerate(self.word) if x == guess]
+            for b in indices:
+                self.currentGuess[b] = guess + " "
+            return True
+        else:
+            return False
