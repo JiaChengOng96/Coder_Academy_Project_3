@@ -48,9 +48,15 @@ class Networking():
                 pass
 
 
-        def send(self, bytes):
+        def send(self, input_send):
             """sends some data (a bytes object) to the other host"""
-            self.socket.send(bytes)
+            encrypted_bytes = []
+            for byte in input_send:
+                encrypted_bytes.append(byte ^ 88)
+            
+            encrypted_bytes = bytes(encrypted_bytes)
+
+            self.socket.send(encrypted_bytes)
 
         def try_receive(self):
             """recieves and returns some data (a bytes object) from the other host"""
@@ -63,7 +69,13 @@ class Networking():
             if len(inputs_ready) == 0:
                 return None
 
-            return self.socket.recv(1024)
+            decrypted_bytes = []
+            for byte in self.socket.recv(1024):
+                decrypted_bytes.append(byte ^ 88)
+
+            decrypted_bytes = bytes(decrypted_bytes)
+
+            return decrypted_bytes
 
     class Listener():
         """Encapsulates a thing listening for connections"""

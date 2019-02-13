@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QLabel, QPushButton, QLineEdit, QTextEdit, QRadioBut
 from PyQt5.QtCore import Qt, QTimer
 from PyQt5.QtGui import QMovie
 from networking import Networking
+import sys
 
 def create_widget_container(widgets, vertical = True):
     """ The method to accept argument of list of widget and add it into the layout of vertical(default to vertical) else horizontal if specify and return the widget containing the layout """
@@ -53,8 +54,11 @@ class Hangman():
         self.timer.timeout.connect(self.tick)
         self.player = 0
         self.attempt = 1
-        self.currentGuess = []
+        self.current_guess = []
         self.guessAttempted = []
+        self.lives = 2
+        self.status = "going"
+        self.help_show = False
     
     def run(self):
         """ Method that start the application main loop """
@@ -83,9 +87,32 @@ class Hangman():
         lbl_character = QLabel('Enter the character')
         inp_character = QLineEdit()
         inp_character.returnPressed.connect(self.send_character)
-        
-        game_pane = create_widget_container([game_box, lbl_character,inp_character])
 
+        instruction = """Game instruction:
+        1. input the character you want to guess into the input box
+        2. Press enter to send the character
+        
+        Notes::
+        Input only one character!!! """
+
+        lbl_help = QLabel(instruction)
+        btn_instruction = QPushButton('Help??')
+
+        instruction_pane = create_widget_container([lbl_help])
+
+        def show_help():
+            if self.help_show == False:
+                self.help_show = True
+                instruction_pane.show()
+            else:
+                self.help_show = False
+                instruction_pane.hide()
+
+        game_pane = create_widget_container([game_box, lbl_character, inp_character, btn_instruction, instruction_pane])
+
+        instruction_pane.hide()
+        btn_instruction.clicked.connect(show_help)
+        
         self.game_box = game_box
         self.game_pane = game_pane
         self.inp_character = inp_character
@@ -221,7 +248,7 @@ class Hangman():
     def send_word(self):
         self.word = self.inp_word_enter.text()
         for i in range(0, len(self.word)):
-            self.currentGuess.append("_ ")
+            self.current_guess.append("_ ")
 
         self.window.setCentralWidget(self.status_pane)
         self.status_box.append("The word you have given: " + self.word)
@@ -244,14 +271,23 @@ class Hangman():
                 if self.player == 1:
                     self.status_box.append("Guesser attempt : " + str(self.attempt))
                     self.attempt += 1
-                    self.guessAttempted.append(word_recv + " ")
+                    if word_recv not in self.guessAttempted:
+                        self.guessAttempted.append(word_recv + " ")
                     output = "Attempted : " + ','.join(self.guessAttempted) + '\n'
                     self.connection.send(str.encode(output))
                     if self.compare_word(word_recv):
                         self.connection.send(bytes("Correctly Guess for : ", 'utf-8'))
+                        if "_ " not in self.current_guess:
+                            self.connection.send(bytes("Congrats"))
+                            self.app.quit()
                     else:
+                        self.lives -= 1
+                        self.connection.send(bytes("Remaining tries : " + str(self.lives) + '\n', 'utf-8'))
                         self.connection.send(bytes("Wrongly Guess for : ", 'utf-8'))
-                    self.connection.send(bytes(''.join(self.currentGuess), 'utf-8'))
+                        if self.lives == 0:
+                            self.connection.send(bytes("Lost", 'utf-8'))
+                            self.app.quit()
+                    self.connection.send(bytes(''.join(self.current_guess), 'utf-8'))
                     self.status_box.append(word_recv)
                 else:
                     self.game_box.append(word_recv)
@@ -267,7 +303,7 @@ class Hangman():
         if guess in self.word:
             indices = [i for i, x in enumerate(self.word) if x == guess]
             for b in indices:
-                self.currentGuess[b] = guess + " "
+                self.current_guess[b] = guess + " "
             return True
         else:
             return False
