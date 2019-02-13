@@ -4,6 +4,7 @@ import select
 
 class Networking():
     def get_ip():
+        """ Method which read the user ip address and return it """
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         try:
             # It doesn't not need to be reachable

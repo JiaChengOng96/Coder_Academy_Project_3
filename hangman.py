@@ -67,7 +67,7 @@ class Hangman():
         print("Application was closed")
 
     def create_status_pane(self):
-
+        """ Create the status pane for the giver """
         # Create the read only status box
         status_box = QTextEdit()
         status_box.setPlainText('')
@@ -79,7 +79,7 @@ class Hangman():
         self.status_pane = status_pane
 
     def create_game_pane(self):
-
+        """ Create the game pane for the guesser to guess, the main game """
         game_box = QTextEdit()
         game_box.setPlainText('')
         game_box.setReadOnly(True)
@@ -101,6 +101,7 @@ class Hangman():
         instruction_pane = create_widget_container([lbl_help])
 
         def show_help():
+            """ The local method on showing and hiding the instruction for the game """
             if self.help_show == False:
                 self.help_show = True
                 instruction_pane.show()
@@ -118,6 +119,7 @@ class Hangman():
         self.inp_character = inp_character
     
     def create_main_pane(self):
+        """ Create the main pane for the user to connect or wait for connection """
         # Create a pane with the choice to connect or listen to others
 
         # provide choice to connect or wait for connection
@@ -156,11 +158,13 @@ class Hangman():
 
         # set up a method to show or hide based on user choice
         def show_connect_pane():
+            """ show the connection pane when user click the connect to radiobutton """
             listen_pane.hide()
             connection_pane.adjustSize()
             connect_pane.show()
 
         def show_listen_pane():
+            """ show the listening pane when user click the listen radiobutton """
             connect_pane.hide()
             connection_pane.adjustSize()
             listen_pane.show()
@@ -175,7 +179,7 @@ class Hangman():
 
 
     def create_selection_pane(self):
-
+        """ method that create the selection pane for the user to choose which side they want to be on, but is not used in the mvp """
         # create a label for the choice
         lbl_choose_side = QLabel("Which Side do you want?")
 
@@ -215,6 +219,7 @@ class Hangman():
         
 
     def btn_connect_clicked(self):
+        """ The method would process when the user click on the connect button """
         # when connect button is clicked, show the chat pane
         self.window.setCentralWidget(self.giver_pane)
 
@@ -223,6 +228,7 @@ class Hangman():
         self.player = 1
     
     def btn_listen_clicked(self):
+        """ The method would process when user click the waiting for connection/listen button """
         # When listen button is clicked, show the selection pane
         self.window.setCentralWidget(self.guesser_pane)
         self.listener = Networking.Listener(5000)
@@ -232,12 +238,15 @@ class Hangman():
         self.player = 2
     
     def btn_giver_clicked(self):
+        """ Method which set the giver to the pane for giver """
         self.window.setCentralWidget(self.giver_pane)
 
     def btn_guesser_clicked(self):
+        """ Method which set the guesser to the pane for guesser """
         self.window.setCentralWidget(self.guesser_pane)
 
     def send_character(self):
+        """ Method which send the character enter by the guesser """
         self.character = self.inp_character.text()
         self.inp_character.setText("")
         
@@ -246,6 +255,7 @@ class Hangman():
         self.connection.send(bytes(self.character, 'utf-8'))
 
     def send_word(self):
+        """ Method which send the word by the giver to the guesser to guess """
         self.word = self.inp_word_enter.text()
         for i in range(0, len(self.word)):
             self.current_guess.append("_ ")
@@ -256,7 +266,7 @@ class Hangman():
         self.connection.send(bytes(temp, 'utf-8'))
 
     def tick(self):
-
+        """ the method which used to check for incoming connection """
         if self.accepting:
             self.connection = self.listener.try_get_connection()
             if self.connection is not None:
@@ -300,6 +310,7 @@ class Hangman():
                 print("Connected!!")
         
     def compare_word(self, guess):
+        """ method to check for the given character by guesser is in the word provide by giver """
         if guess in self.word:
             indices = [i for i, x in enumerate(self.word) if x == guess]
             for b in indices:
