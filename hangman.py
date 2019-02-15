@@ -26,7 +26,9 @@ def create_widget_container(widgets, vertical = True):
 class Hangman():
     """ Creating a cless which encapsulates out our application """
     def __init__(self):
-        """ The constructor for this class """
+        """ The constructor for this class 
+        infomation about Qt widget:
+        https://doc.qt.io/qtforpython/PySide2/QtWidgets/index.html"""
 
         # Create a GUI application
         app = QApplication([])
@@ -238,7 +240,9 @@ class Hangman():
         self.player = 2
     
     def btn_giver_clicked(self):
-        """ Method which set the giver to the pane for giver """
+        """ Method which set the giver to the pane for giver
+        visit here for more info about setCentralWidget: 
+        https://doc.qt.io/qtforpython/PySide2/QtWidgets/QMainWindow.html#PySide2.QtWidgets.PySide2.QtWidgets.QMainWindow.setCentralWidget"""
         self.window.setCentralWidget(self.giver_pane)
 
     def btn_guesser_clicked(self):

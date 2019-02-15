@@ -3,6 +3,7 @@ import select
 
 
 class Networking():
+    """ Visit here for more information about python socket: https://docs.python.org/3/library/socket.html"""
     def get_ip():
         """ Method which read the user ip address and return it """
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
