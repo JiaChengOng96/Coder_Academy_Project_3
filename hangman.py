@@ -95,7 +95,12 @@ class Hangman():
         2. Press enter to send the character
         
         Notes::
-        Input only one character!!! """
+        Input only one character!!! 
+        Visit here for more information:
+        https://www.wikihow.com/Play-Hangman
+        Visit here for this gameplay instruction
+        https://github.com/JiaChengOng96/Coder_Academy_Project_3/blob/master/README.md
+        """
 
         lbl_help = QLabel(instruction)
         btn_instruction = QPushButton('Help??')
