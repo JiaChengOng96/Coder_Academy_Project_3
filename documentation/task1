@@ -40,16 +40,21 @@ Identify threats to network security by creating a threat model for the network 
 outline the common and emerging vulnerabilities for the client (150 - 200 words)
 
 
-
 profile TWO potential attackers, and describe: (200 - 300 words for each profile)
 
+Random hacker
+- 
 
+Physical burglar
+ - Motivation:
 
 the attacker's motivations in attacking the network and the relationship the attacker may have with the client
 a particular scenario or threat the attacker could pose
 the technical expertise required for them to carry out the attack
 the possible severity/seriousness of the attack and the damage it could cause
+
 categorise the threats/issues you have identified and provide a statement which gives them an overall qualitative assessment of their security posture. (150 - 200 words)
+
 Analyse the security risks and outline the process of risk management, you must:
 outline the risk management process you will undertake to assess risks in plain-English. (200 - 300 words)
 
