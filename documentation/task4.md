@@ -60,21 +60,11 @@ Other than that, a user level access right might not allow for running program o
 Last but not least, the system may have a monitoring system which will log the system activity log file and storing it for analysing. When there is program install by someone other than admin or some programing running on the background would immidiately being detected by the monitoring team and report to the security team. This may cause our bot to be stop or remove from the system.
 
 
-Create an installation script for the bot.
+Write a log which documents a security incident which you resolved by implementing your incident response plan. 
 
-Create an uninstall script for the bot.
+A security incident mean that there is potential threat or attack target toward the system and may or may not breach into the system network. For example a scenario, when someone perform multiple failed attempt to ssh into other network would mean that there is an incident happening which someone may be trying to bruteforce into a network system using ssh or it may be someone who forgot it's credentials. Security incident may be malicious or not and every incident would be research and analyse to determine it potential threat. 
 
-Arrange for your trainer to observe you:
+When a security incident occur, the first thing to do would be to start analyse what is the cause of incident. One of the place which security person would need to do is to read the log. Log would store all the action or activity perform during the server up time. By analysing the log only would get more detail of where is the incident or how it is attacked. For the example from previous about someone perform ssh attack, there would be a log file which would log all the attempt of ssh to the server may it be successful or unsuccessful attempt. 
+The log file which log all the authentication in `/var/log/auth.log` file and it would also specify which ip address and which account it is trying to access. When this incident it found, one of the way to solve this issues is to block the ip address which is trying to access the network for next 48 hour or we could ask the user to change the password to a stronger and longer password. 
 
-testing your installation script in a test and production environment
-testing your uninstall script in a test environment
-configuring and testing a server to be aligned with an incident response plan process in terms of allocation of user accounts and privileges
-deploying a database from a test environment to a production environment
-specifying an appropriate configuration string for the database
-
-
-Write a log which documents a security incident which you resolved by implementing your incident response plan. In the log you must (200 - 300 words):
-
-describe the nature of the security incident
-outline the measures taken to deal with the security incident
-outline any future steps required to handle the security incident and sign off on these future steps
+As for future security incident, we could implement an automate software that would detect multiple failed attempt as ssh attack and would automatically block the ip address of the attacker such as using fail2ban. Fail2ban would ban the ip address of the attacker who fail to provide correct credential. One reason we do not ban the ip address forever because the ip address maybe own by other people after few month and is not the attacker. For more incident notification of ban, we can configure to have a daily report showing how is perform attack and log it as an informative alert rather than only ban and not notifying anything.

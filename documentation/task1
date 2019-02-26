@@ -46,7 +46,11 @@ Random hacker
 - 
 
 Physical burglar
- - Motivation:
+ - Motivation: Burglar are only interest in robbing valuable items may or may not specific target for example like gold, jewellery and other else
+ - Scenario: Burglar may be armed with various type of weapon or without anything. Assume that the whole family are not at home, the burglar would need to cut the only power supply which supply the power and would then disable the only basic alarm system installed. He can then enter through their backdoor and start stealing valuable stuff. In this case we say that there is only one burglar, so the amount of stuff he can carry is limited which he focus more on easy money stuff like gold bar or jewellery or even try pick lock the safe(If there is a safe) 
+- Technical expertise: To rob a house would required less to no technical skill. However in our scenario there is a basic alarm system with motion detection. So one of the skill needed is to disable the motion detector or cut the power supply. Other than that he may need some simple lock picking skill to unlock the door or he can just brute force the door in a way that no one would notice it. When stealing stuff would required no technical skill but if there is a safe with lock on it, it would required high technical skill to open the lock.
+- Severity: This attack can be consider medium to severe because the burglar can be armed and harm the household member
+
 
 the attacker's motivations in attacking the network and the relationship the attacker may have with the client
 a particular scenario or threat the attacker could pose
