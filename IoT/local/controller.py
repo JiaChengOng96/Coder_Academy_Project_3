@@ -11,10 +11,12 @@ class Controller():
     def __init__(self):
 
         self.app = QApplication([])
-
+        
         dd_container = DragDropContainer()
 
         connection_pane = self.create_connect_panel()
+
+        connection_pane.hostname = None
 
         # window = QWidget()
         # layout = QVBoxLayout()
@@ -24,9 +26,16 @@ class Controller():
 
         dd_container.add_child(connection_pane)
 
-        dd_container.show()
-
         self.dd_container = dd_container
+
+        f = open("savefile", "r")
+        
+        for x in f:
+            connection = rpyc.classic.connect(x.strip())
+            device = connection.modules.__main__.my_device
+            self.add_device_panel(device, x.strip())
+
+        dd_container.show()
                
 
     def create_connect_panel(self):
@@ -46,7 +55,7 @@ class Controller():
             hostname = inp_ip_address.text()
             connection = rpyc.classic.connect(hostname)
             device = connection.modules.__main__.my_device
-            self.add_device_panel(device)
+            self.add_device_panel(device, hostname)
 
         btn_connect.clicked.connect(connect)
 
@@ -54,7 +63,7 @@ class Controller():
 
         return panel
 
-    def add_device_panel(self, device):
+    def add_device_panel(self, device, hostname):
         panel = QFrame()
         panel.setFrameShape(QFrame.Box)
         layout = QVBoxLayout()
@@ -102,9 +111,19 @@ class Controller():
             layout.addWidget(lbl_value)
 
         panel.setLayout(layout)
+        panel.hostname = hostname
         self.dd_container.add_child(panel)
 
 
 
     def run(self):
         self.app.exec_()
+
+        file_open = open("savefile", "w")
+
+        list_of_device = self.dd_container.list_widgets()
+
+        for x in list_of_device:
+            if x.hostname is not None:
+                if x is not "\n":
+                    file_open.write(x.hostname+"\n")
