@@ -1,12 +1,14 @@
 # Network Security Plan
 
 ## *Problem Scenario*
-    You are a security consultant who has been asked to develop a network security plan for a client who is a tech obsessive/early-adopter. The client has a high speed internet connection and both a wired and wireless network which connects many different devices throughout their home.
+
+You are a security consultant who has been asked to develop a network security plan for a client who is a tech obsessive/early-adopter. The client has a high speed internet connection and both a wired and wireless network which connects many different devices throughout their home.
 
 ## *Contextual Details*
-    The client works in the finance sector as a senior executive and lives with their partner and two children. The dwelling is a house which has a backyard with a back fence that adjoins a public park. The distance from the dwelling to the back fence is approximately 20 metres.
 
-    The power source and internet connection for the dwelling comes from overhead powerlines at the front of the house. There is no backup source of power. The wifi router is located on the kitchen bench. The home has a basic alarm system with motion detectors, but does not have phone home capability to a response company.
+The client works in the finance sector as a senior executive and lives with their partner and two children. The dwelling is a house which has a backyard with a back fence that adjoins a public park. The distance from the dwelling to the back fence is approximately 20 metres.
+
+The power source and internet connection for the dwelling comes from overhead powerlines at the front of the house. There is no backup source of power. The wifi router is located on the kitchen bench. The home has a basic alarm system with motion detectors, but does not have phone home capability to a response company.
 
 # *Technical Details*
 ***Router***: TP-LINK AC750
@@ -83,10 +85,12 @@ In this part, we will be assessing the risk mention in question 1 using the 5 * 
 
 ![risk-matrix](https://github.com/JiaChengOng96/Coder_Academy_Project_3/blob/master/Task1_Network_Security_Plan/matrix.png)
 
-Risk 1: Window 8.0 end-of main stream support
+***image link: https://1.bp.blogspot.com/-glnMOx-KzBc/WH-mao9fMZI/AAAAAAAAARo/8Y_NqUklpVYKCIXeT5fkJuWJSjbbcWBTgCLcB/s400/5x5%2BRisk%2BMatrix.png***
+
+***Risk 1***: Window 8.0 end-of main stream support
 End of main stream support from microsoft team means that window 8.0 device would not be on the priority list of the support list and maybe would receive patches for vulnerability if the microsoft team have the capabilities. Through my research, there are many vulnerabilities found targeted window 8.0 which range from low to critical. This show that the risk have a 5 point of likelihood of happend while 4 point for consequences depend on average of vulnerability found mean total up to 20 point which conclude as a high risk to the client.
 
-Risk 2: KRACK vulnerability
+***Risk 2***: KRACK vulnerability
 KRACK vulnerability is found and potential vulnerable to all device which use WPA protection in their wifi network. The vulnerability work as long as they are within range and the device network is using WPA standard, this vulnerability would have high chance of suceeding in exploiting. However, this exploit only allow the attacker to view the traffic which is not encrypted with https and nothing else. This show that this vulnerability has a 5 point in likelihood while 2 point in consequences due to the limitation of what attacker can do and total up to 10 which is a low risk finding.
 
 
@@ -110,7 +114,7 @@ The router
 
 - Window 8.0 end of main-stream support
 
-      This is a threats to the client work environment as any company data that is stored within the laptop would have high chance of being exploit. The laptop is use for both personal and work which should not be done in the first place due to potential malicious software installation for personal use which would exploit the laptop.
+    This is a threats to the client work environment as any company data that is stored within the laptop would have high chance of being exploit. The laptop is use for both personal and work which should not be done in the first place due to potential malicious software installation for personal use which would exploit the laptop.
 
 Policies and requirement to mitigate:
 
@@ -125,8 +129,10 @@ Policies and requirement to mitigate:
 
 - Router and power grid lines
 
-      This router do not meet industry standard for the client to perform work related task that required internet. Through nessus basic scan, I found that there is high rate vulnerability on the router and there is no layer of protection on the router. There is only one power grid line that provide power to the house and if the power line is cut would cause the house to have no electricity, this would cause the client to not be able to perform emergency work related task.
+    This router do not meet industry standard for the client to perform work related task that required internet. Through nessus basic scan, I found that there is high rate vulnerability on the router and there is no layer of protection on the router. There is only one power grid line that provide power to the house and if the power line is cut would cause the house to have no electricity, this would cause the client to not be able to perform emergency work related task.
+
 Policies and requirement to mitigate:
+
 1. Install another internet cable and router which is only for work use and is industry level protection such as fully encrypted connection
 2. Purchase another physical firewall and connect the router after the physical firewall so that there is one layer of protection before connecting to router
 3. The client can also purchase a router which has firewall or anti-malware install in to router to have a more secure connection 
