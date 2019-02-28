@@ -43,7 +43,7 @@ Samsung s8 latest android version is 8.0
 - Android 8.0 have few vulnerabilities such as android 8.0 system privilege escalation(cve-2017-13209) which would perform privilege escalated within the android phone. There is current no further android version update for samsung s8 and version 8.0 is current latest which later version is to be announce.
 
 iphone 7 support up to ios 10 and apple time machine - KRACK wifi vulnerabililty
-- There are many vulnerability evovle around ios 10. If the phone is updated upto 10.3.3, one of the high severity vulnerabilities is wifi vulnberability where hacker can break someone iphone when the iphone user is search for wifi and is within the range of hacker without the need of user credential or apple id. Apple still provide support for iphone 7 however iphone would not be compatible to update to later than ios 10.
+- There are many vulnerability evovle around ios 10. If the phone is updated upto 10.3.3, one of the high severity vulnerabilities is wifi vulnberability where hacker can intercept someone traffic that is not encrypted when the iphone user is search for wifi and is within the range of hacker without the need of user credential or apple id. Apple still provide support for iphone 7 however iphone would not be compatible to update to later than ios 10.
 
 TP-LINK AC750
 - Device model CISCO version reach end of life support. Vulnerability found is that if user have authenticated local access, it would run arbitary code execution or cause denial of services
@@ -75,7 +75,15 @@ The current of risk expose of the client is high based on the finding from quest
 Analyse the security risks and outline the process of risk management, you must:
 outline the risk management process you will undertake to assess risks in plain-English. (200 - 300 words)
 
-***************Use the 5 * 5 metric to calculate and provide the easiest way for people to understand the risk
+In this part, we will be assessing the risk mention in question 1 using the 5 * 5 matrix to scale the risk in term of likelyhood and consequences. The rating of risk assessment total up to 25 point from 5 point of likelihood and 5 point of consequences. 1 point from likelihood mean low posibility to none of happening while 5 point of likelihood mean high chance to guarantee happening. While for 1 point of consequences means low consequences and 5 point of consequences rate means critical consequences. 
+
+![risk-matrix]()
+
+Risk 1: Window 8.0 end-of main stream support
+End of main stream support from microsoft team means that window 8.0 device would not be on the priority list of the support list and maybe would receive patches for vulnerability if the microsoft team have the capabilities. Through my research, there are many vulnerabilities found targeted window 8.0 which range from low to critical. This show that the risk have a 5 point of likelihood of happend while 4 point for consequences depend on average of vulnerability found mean total up to 20 point which conclude as a high risk to the client.
+
+Risk 2: KRACK vulnerability
+KRACK vulnerability is found and potential vulnerable to all device which use WPA protection in their wifi network. The vulnerability work as long as they are within range and the device network is using WPA standard, this vulnerability would have high chance of suceeding in exploiting. However, this exploit only allow the attacker to view the traffic which is not encrypted with https and nothing else. This show that this vulnerability has a 5 point in likelihood while 2 point in consequences due to the limitation of what attacker can do and total up to 10 which is a low risk finding.
 
 
 identify and categorise THREE potentially valuable assets on the network, you must (400 - 500 words):
@@ -92,12 +100,90 @@ The router
 - This may seem insignification to the client as router does not storage any company data or personal data but it actually important for the client because it is the only point of access to the internet. Router would be the only connection available within the house and there is no other backup connection. From the attacker point of view, router is always the attack start point because by exploiting the router (other than creating a new evil twin to trick member of client house to connect to it), the attacker would be able to intercept all the traffic that flow through the router as well as start inflitrate into the whole house network. Depending on the situation, router can cause to cost up to thousand of dollar or only the price on one router. It is because attacker may not be able to hack into the router which would not cost any client money but possibly cost to cover broken router. In contrast, if the attacker break into the router then it would cost more than just a router. Router should come with pre-install firewall or anti malware and also purchase another layer of physical firewall before going through the router for extra protection.
 
 
+
+
 Create a risk management plan and security controls based on your threat model and assets on the network, you must:
 design two policies which outline security controls and requirements to mitigate TWO threats in your threat model. (300 - 400 words per policy)
+
+- Window 8.0 end of main-stream support
+This is a threats to the client work environment as any company data that is stored within the laptop would have high chance of being exploit. The laptop is use for both personal and work which should not be done in the first place due to potential malicious software installation for personal use which would exploit the laptop.
+Policies and requirement to mitigate:
+1. Constantly perform window update with the latest patches available
+2. Seperate the laptop into work use laptop and personal use laptop
+3. Never installed any unnecessary software or unknown program on the work laptop
+4. Perform full drive encryption of industry standard to prevent information theft
+5. Using strong password to prevent bruteforce attack and not a commonly use password
+6. Never connect work laptop to a home wifi that is not secure and tries to minimise connection time toward wifi
+7. Install anti-malware or anti-virus to have one extra layer of security on the laptop
+8. If possible, switch to a laptop which as a operating system that is still in main-stream support such as window 10 device
+
+- Router and power grid lines
+This router do not meet industry standard for the client to perform work related task that required internet. Through nessus basic scan, I found that there is high rate vulnerability on the router and there is no layer of protection on the router. There is only one power grid line that provide power to the house and if the power line is cut would cause the house to have no electricity, this would cause the client to not be able to perform emergency work related task.
+Policies and requirement to mitigate:
+1. Install another internet cable and router which is only for work use and is industry level protection such as fully encrypted connection
+2. Purchase another physical firewall and connect the router after the physical firewall so that there is one layer of protection before connecting to router
+3. The client can also purchase a router which has firewall or anti-malware install in to router to have a more secure connection 
+4. Install an extra power supply such as back-up power generator or emergency battery for short term use to prevent power supply cut and losing connect to working environment
+5. Constantly check for update for the router to have the latest firmware so that there would be lesser chance of having vulnerability
+6. Reduce the range of the wifi router to only within the house area so that the wifi would not be detect outside of the house compound so that public would be able to exploit the KRACK vulnerability
+7. Sign contract with an external security response team to ensure that the team would take action as soon as an alert have been detected such as power grid is down
+8. Change the password to a strong and longer password which also not a commonly found password
+
+
 create a timeline and budget for the implementation of policies (200 - 300 words)
+
+Most of the policies would need to be completed within the timeline of one week to ensure the best possible security around the client. The budget would be varies depend on security implementation.
+
+In 1 day time:
+- Change the password for both the router and the laptop to be more secure 
+- Purchase a new laptop for work use which have main-stream support such as window 10 laptop 
+- Perform update to the latest possible firmware and also latest update for any offical software for all device
+- uninstall any unwanted or unnecessary software to remove any potential vulnerability and never install work-unrelated software to the work laptop
+- Perform the full drive encryption using window bit locker to secure the data within the work laptop
+- install one of any anti-virus such as kaspersky, norton and others to protect from virus or malware for all laptop
+
+Within 2 to 3 day:
+- contract with an external security response team for any of alert or potential risk happenly physically around the house
+- Contact an external ventor to install an external power supply such as power generator or emergency power battery for emergency use when the power supply from the power grid is cut 
+- request the client company to setup router for work use at home
+
+Within a week:
+- Client company security team come to perform a setup on secure cable and internet line for the client to work at home and a work router that install with a firewall or setup another 
+- The security team also help to configure both work network connection range and the home network connection range not to be accesible outside of the compund
+- installation of the emergency power supply is complete
+
+Constantly follow:
+- reduce amount of time for device to connect to the internet to reduce the risk
+- never connect personal device to the work network and never connect work device to personal home network
+
+Budget:
+1. router installation and cable implementation would cost roughly up to 200 for the secure connection per month and around 150 for a decent router
+2. Purchasing a new laptop would cost around 2000 dollar and with around 100 for a copy of anti virus software
+3. Sign contract with incident response team would roughly up to 100 per month
+4. request for installing emergency power supply would cost around 300 for equipment and around 100 dollar for installation fee
+
+Rough total of the money to implement would total up to around 3000 intially and around 300 per month for paying work internet and incident response team
+
+
 write a plain-English explanation for the client relating to the timeline and budget for implementation of the risk management plan (150 - 200 words)
+
+Incident response team is a must because it is like an insurance to protect the company asset that is store at the house which would need to pay regulary. This should be perform within one week is due to consideration of allocating the response team to have a check on the house and registering the necessary equipment. Besides, using only one laptop for both personal and work is a security risk as explain above and need to be done within one day time frame because of the risk. Thus, client would need to purchase a standard usable laptop with recommended security protection would cost up to around 2000 dollar with one piece of anti virus for extra layer of protection. Moving on to installing a work only network connect would be important for the client and should be complete within one week time frame because would need to call in a team to install hardware component and setting everything up. This is important for the reason being that if the client use home network to connect to the company internal network create another security issues for company because if the home network were to exploit would cause the company network to be in risk. Thus by seperating into work router and home router would prevent from additional risk to the company assuming that the client would not connect anything non-work related device to the work router.
+
 create a process for continuous review in the form of a list of steps to be followed to maintain the security controls you have designed (100 - 200 words)
+
+Steps or action necessary to maintain security controls:
+- Constantly update the firmware of device or anything that is connect to the network to get the latest security patches.
+- never connect personal device to the work network and never connect work device to personal home network
+- Change the house network as well as device password every few month to prevent password bruteforce crack
+- Discuss for the company security team to have a monthly house security check to identify any new potential risk arise
+- Any new device or implementation would need to seek advice some security team to ensure safety of the house member
+- Client would need to monitor their children to ensure that they do not install any harmful software that may harm the home network
+
+
 provide evidence you have received feedback from a industry expert on your risk management plan, and how you have modified your approach based on feedback (notes on feedback or written feedback from industry expert in addition to 100 - 200 words on your response to this feedback)
+
+
+
 Design an auditing and incident response plan to handle a security incident affecting the network described in the Problem Scenario
 
 Your Incident response plan must include:
