@@ -1,43 +1,42 @@
-# Problem Scenario
-You are a security consultant who has been asked to develop a network security plan for a client who is a tech obsessive/early-adopter. The client has a high speed internet connection and both a wired and wireless network which connects many different devices throughout their home.
+# Network Security Plan
 
-# Contextual Details
-The client works in the finance sector as a senior executive and lives with their partner and two children. The dwelling is a house which has a backyard with a back fence that adjoins a public park. The distance from the dwelling to the back fence is approximately 20 metres.
+## *Problem Scenario*
+    You are a security consultant who has been asked to develop a network security plan for a client who is a tech obsessive/early-adopter. The client has a high speed internet connection and both a wired and wireless network which connects many different devices throughout their home.
 
-The power source and internet connection for the dwelling comes from overhead powerlines at the front of the house. There is no backup source of power. The wifi router is located on the kitchen bench. The home has a basic alarm system with motion detectors, but does not have phone home capability to a response company.
+## *Contextual Details*
+    The client works in the finance sector as a senior executive and lives with their partner and two children. The dwelling is a house which has a backyard with a back fence that adjoins a public park. The distance from the dwelling to the back fence is approximately 20 metres.
 
-# Technical Details
-Router: TP-LINK AC750
+    The power source and internet connection for the dwelling comes from overhead powerlines at the front of the house. There is no backup source of power. The wifi router is located on the kitchen bench. The home has a basic alarm system with motion detectors, but does not have phone home capability to a response company.
 
-Wifi-range extenders: N/A, extended antenna attached to router with range well onto the street frontage and park.
+# *Technical Details*
+***Router***: TP-LINK AC750
 
-Network Attached Storage: Apple time machine.
+***Wifi-range extenders***: N/A, extended antenna attached to router with range well onto the street frontage and park.
 
-Mobile Devices: 2 x Samsung Galaxy S8 Android phones, 1 x iPhone 7, 1 x iPhone X
+***Network Attached Storage***: Apple time machine.
 
-Computers: 2 x 2014 HP standard laptops running Windows 8.1, 2 x 2017 Macbook Pros
+***Mobile Devices***: 2 x Samsung Galaxy S8 Android phones, 1 x iPhone 7, 1 x iPhone X
 
-Home Security System: basic alarm system with motion detectors, and two Grandstream products, note: imagine you have visited the client's home, visit the Grandstream website and pick TWO network connected security products other than motion detectors that the client is using.
+***Computers***: 2 x 2014 HP standard laptops running Windows 8.1, 2 x 2017 Macbook Pros
 
-IoT: Smart fridge, Google Home, baby monitor, remote access to security camera monitoring front door via web GUI
+***Home Security System***: basic alarm system with motion detectors, and two Grandstream products, note: imagine you have visited the client's home, visit the Grandstream website and pick TWO network connected security products other than motion detectors that the client is using.
 
-Instructions
+***IoT***: Smart fridge, Google Home, baby monitor, remote access to security camera monitoring front door via web GUI
+
+# Instructions
 You must write a network security plan to present to the client:
 
 Identify threats to network security by creating a threat model for the network described in the Problem Scenario. You must:
 
-outline the common and emerging vulnerabilities for the client (150 - 200 words)
+### ***outline the common and emerging vulnerabilities for the client (150 - 200 words)***
+
+### Common vulnerability:
+
 DOS attack 
 - Grannstream GXP-2000 VoIP Descktop phone is vulnerable to denial of service attack. If the user DOS attack the client, the client would not be able to use the ip decktop phone.
 
 App Provisioning Vulnerability
 - Grandstream android desk phone of version 1.0.3.55 or earlier is vulnerable to app provisioning where it allow to automatically on startup setting up the configuration setting for the desk phone.
-
-Window 8.1 system end of main-stream support
-- without the main-stream support, window 8.1 device would got some patches for critical level vulnerabilities until year of 2023 which if the vulnerability found is not critical it would not be patch.
-
-Samsung s8 latest android version is 8.0
-- Android 8.0 have few vulnerabilities such as android 8.0 system privilege escalation(cve-2017-13209) which would perform privilege escalated within the android phone. There is current no further android version update for samsung s8 and version 8.0 is current latest which later version is to be announce.
 
 iphone 7 support up to ios 10 and apple time machine - KRACK wifi vulnerabililty
 - There are many vulnerability evovle around ios 10. If the phone is updated upto 10.3.3, one of the high severity vulnerabilities is wifi vulnberability where hacker can intercept someone traffic that is not encrypted when the iphone user is search for wifi and is within the range of hacker without the need of user credential or apple id. Apple still provide support for iphone 7 however iphone would not be compatible to update to later than ios 10.
@@ -48,8 +47,16 @@ TP-LINK AC750
 Apple time machine - arbitary code execution through buffer overflow
 - There is memory corruption issues existed in DNS data parsing which would cause arbitary code execution (CVE-2015-7029)
 
+### Emerging Vulnerability:
 
-## profile TWO potential attackers, and describe: (200 - 300 words for each profile)
+Window 8.1 system end of main-stream support
+- without the main-stream support, window 8.1 device would got some patches for critical level vulnerabilities until year of 2023 which if the vulnerability found is not critical it would not be patch. From the link below, there are more critical level vulnerability found for window 8.1.
+- links: https://www.cvedetails.com/vulnerability-list/vendor_id-26/product_id-26434/Microsoft-Windows-8.1.html
+
+Samsung s8 latest android version is 8.0 
+- Android 8.0 have few vulnerabilities such as android 8.0 system privilege escalation(cve-2017-13209) which would perform privilege escalated within the android phone or some latest local privilege escalation(CVE-2018-9558). There is current no further android version update for samsung s8 and version 8.0 is current latest which later version is to be announce.
+
+### ***profile TWO potential attackers, and describe: (200 - 300 words for each profile)***
 
 Random hacker
 - Motivation: Just because they are interest to break into people network and feel the sense of achievement on breaking stuff
@@ -64,7 +71,7 @@ Physical burglar
 - Severity: This attack can be consider medium to severe because the burglar can be armed and harm the household member if there is member staying at home. Other than that, if the burglar decide to steal device that contain data, he can sell those data if there is data that is valuable. In contrast, if the burglar only steal gold or jewelery stuff then would not cause huge amount of damage would only only lose some asset.
 
 
-## categorise the threats/issues you have identified and provide a statement which gives them an overall qualitative assessment of their security posture. (150 - 200 words)
+### ***categorise the threats/issues you have identified and provide a statement which gives them an overall qualitative assessment of their security posture. (150 - 200 words)***
 
 The current of risk expose of the client is high based on the finding from question 1. We can see that most of the devices, or product that they use are vulnerable and there is no future support or further update to fix the issues of being unsafe. Other than that based on the assuming house floor plan layed out from scenario, we conclude that there is one that is highly catasrophic risk which is unlikely to happen yet not possible to change. The highly catasrophic risk is that the house only have one power grid which is visible to public and there is no backup power supply anywhere. If the power grid were be cut by attacker, any security feature of the house such as the alarm with motion detector or maybe the grandstream security product would not work, which then would cause a high risk to the client and his family. Besides that, since the scenario mention that the client and his family total to 4 member within the family would suggest that each of them hold one laptop. This mean that the client is using a laptop for both work and personal use which is a serious issue where anything happen to the laptop would cause potential leak of his company information due to not using encryption on laptop or others. The wireless router use within the household are not secure as it is and there is some security finding as well as it is extended toward the house area range which any people who passby would be able to search the wireless. This could lead to a mimic of same wifi name to trick the client or family member to connect to it. Last but not least, there are many IoT device within the house which may be vulnerable because most of the IoT device do not have firmware update after purchases as well as data would be store within the chipset of IoT device. If any person would retreive any of the IoT device would be able to get data or information about the house network.
 
@@ -74,7 +81,7 @@ outline the risk management process you will undertake to assess risks in plain-
 
 In this part, we will be assessing the risk mention in question 1 using the 5 * 5 matrix to scale the risk in term of likelyhood and consequences. The rating of risk assessment total up to 25 point from 5 point of likelihood and 5 point of consequences. 1 point from likelihood mean low posibility to none of happening while 5 point of likelihood mean high chance to guarantee happening. While for 1 point of consequences means low consequences and 5 point of consequences rate means critical consequences. 
 
-![risk-matrix]()
+![risk-matrix](https://github.com/JiaChengOng96/Coder_Academy_Project_3/blob/master/documentation/matrix.png)
 
 Risk 1: Window 8.0 end-of main stream support
 End of main stream support from microsoft team means that window 8.0 device would not be on the priority list of the support list and maybe would receive patches for vulnerability if the microsoft team have the capabilities. Through my research, there are many vulnerabilities found targeted window 8.0 which range from low to critical. This show that the risk have a 5 point of likelihood of happend while 4 point for consequences depend on average of vulnerability found mean total up to 20 point which conclude as a high risk to the client.
@@ -97,14 +104,16 @@ The router
 - This may seem insignification to the client as router does not storage any company data or personal data but it actually important for the client because it is the only point of access to the internet. Router would be the only connection available within the house and there is no other backup connection. From the attacker point of view, router is always the attack start point because by exploiting the router (other than creating a new evil twin to trick member of client house to connect to it), the attacker would be able to intercept all the traffic that flow through the router as well as start inflitrate into the whole house network. Depending on the situation, router can cause to cost up to thousand of dollar or only the price on one router. It is because attacker may not be able to hack into the router which would not cost any client money but possibly cost to cover broken router. In contrast, if the attacker break into the router then it would cost more than just a router. Router should come with pre-install firewall or anti malware and also purchase another layer of physical firewall before going through the router for extra protection.
 
 
+### Create a risk management plan and security controls based on your threat model and assets on the network, you must:
 
-
-# Create a risk management plan and security controls based on your threat model and assets on the network, you must:
-## design two policies which outline security controls and requirements to mitigate TWO threats in your threat model. (300 - 400 words per policy)
+### ***design two policies which outline security controls and requirements to mitigate TWO threats in your threat model. (300 - 400 words per policy)***
 
 - Window 8.0 end of main-stream support
-This is a threats to the client work environment as any company data that is stored within the laptop would have high chance of being exploit. The laptop is use for both personal and work which should not be done in the first place due to potential malicious software installation for personal use which would exploit the laptop.
+
+      This is a threats to the client work environment as any company data that is stored within the laptop would have high chance of being exploit. The laptop is use for both personal and work which should not be done in the first place due to potential malicious software installation for personal use which would exploit the laptop.
+
 Policies and requirement to mitigate:
+
 1. Constantly perform window update with the latest patches available
 2. Seperate the laptop into work use laptop and personal use laptop
 3. Never installed any unnecessary software or unknown program on the work laptop
@@ -115,7 +124,8 @@ Policies and requirement to mitigate:
 8. If possible, switch to a laptop which as a operating system that is still in main-stream support such as window 10 device
 
 - Router and power grid lines
-This router do not meet industry standard for the client to perform work related task that required internet. Through nessus basic scan, I found that there is high rate vulnerability on the router and there is no layer of protection on the router. There is only one power grid line that provide power to the house and if the power line is cut would cause the house to have no electricity, this would cause the client to not be able to perform emergency work related task.
+
+      This router do not meet industry standard for the client to perform work related task that required internet. Through nessus basic scan, I found that there is high rate vulnerability on the router and there is no layer of protection on the router. There is only one power grid line that provide power to the house and if the power line is cut would cause the house to have no electricity, this would cause the client to not be able to perform emergency work related task.
 Policies and requirement to mitigate:
 1. Install another internet cable and router which is only for work use and is industry level protection such as fully encrypted connection
 2. Purchase another physical firewall and connect the router after the physical firewall so that there is one layer of protection before connecting to router
@@ -127,7 +137,7 @@ Policies and requirement to mitigate:
 8. Change the password to a strong and longer password which also not a commonly found password
 
 
-## create a timeline and budget for the implementation of policies (200 - 300 words)
+### ***create a timeline and budget for the implementation of policies (200 - 300 words)***
 
 Most of the policies would need to be completed within the timeline of one week to ensure the best possible security around the client. The budget would be varies depend on security implementation.
 
@@ -159,14 +169,14 @@ Budget:
 3. Sign contract with incident response team would roughly up to 100 per month
 4. request for installing emergency power supply would cost around 300 for equipment and around 100 dollar for installation fee
 
-Rough total of the money to implement would total up to around 3000 intially and around 300 per month for paying work internet and incident response team
+***Rough total*** of the money to implement would total up to around 3000 intially and around 300 per month for paying work internet and incident response team
 
 
-## write a plain-English explanation for the client relating to the timeline and budget for implementation of the risk management plan (150 - 200 words)
+### ***write a plain-English explanation for the client relating to the timeline and budget for implementation of the risk management plan (150 - 200 words)***
 
 Incident response team is a must because it is like an insurance to protect the company asset that is store at the house which would need to pay regulary. This should be perform within one week is due to consideration of allocating the response team to have a check on the house and registering the necessary equipment. Besides, using only one laptop for both personal and work is a security risk as explain above and need to be done within one day time frame because of the risk. Thus, client would need to purchase a standard usable laptop with recommended security protection would cost up to around 2000 dollar with one piece of anti virus for extra layer of protection. Moving on to installing a work only network connect would be important for the client and should be complete within one week time frame because would need to call in a team to install hardware component and setting everything up. This is important for the reason being that if the client use home network to connect to the company internal network create another security issues for company because if the home network were to exploit would cause the company network to be in risk. Thus by seperating into work router and home router would prevent from additional risk to the company assuming that the client would not connect anything non-work related device to the work router.
 
-## create a process for continuous review in the form of a list of steps to be followed to maintain the security controls you have designed (100 - 200 words)
+### ***create a process for continuous review in the form of a list of steps to be followed to maintain the security controls you have designed (100 - 200 words)***
 
 Steps or action necessary to maintain security controls:
 - Constantly update the firmware of device or anything that is connect to the network to get the latest security patches.
@@ -177,15 +187,18 @@ Steps or action necessary to maintain security controls:
 - Client would need to monitor their children to ensure that they do not install any harmful software that may harm the home network
 
 
-## provide evidence you have received feedback from a industry expert on your risk management plan, and how you have modified your approach based on feedback (notes on feedback or written feedback from industry expert in addition to 100 - 200 words on your response to this feedback)
+### ***provide evidence you have received feedback from a industry expert on your risk management plan, and how you have modified your approach based on feedback (notes on feedback or written feedback from industry expert in addition to 100 - 200 words on your response to this feedback)***
+
+![Feedback](https://github.com/JiaChengOng96/Coder_Academy_Project_3/blob/master/documentation/feedback.PNG)
+
+The image above show the feedback i got from my educator. For the window part i have not only fixed the minor issues, I have also added more information as well as link to list of potential emerging vulnerability on window 8.1 laptop. On top of that, I have also format it to show the common vulnerability group as well as emerging vulnerability group to show the priority as well as to answer the question. From the feedback, I have also fix some of the part to make it more readable.
 
 
-
-## Design an auditing and incident response plan to handle a security incident affecting the network described in the Problem Scenario
+### ***Design an auditing and incident response plan to handle a security incident affecting the network described in the Problem Scenario***
 
 Your Incident response plan must include:
 
-### a description of the incident it will address (150 - 200 words)
+### ***a description of the incident it will address (150 - 200 words)***
 
 One day there is an incident happen around the client house.
 
@@ -202,17 +215,50 @@ One day there is an incident happen around the client house.
 - He then receive a blackmail email blackmailing him money for the data that suppose only he and the company have
 - He then call the company security team to report of the issues and seek for advice as this is a cyber security breach
 
-an outline which states how it provides appropriate coverage for the incident which must refer to an authoritative source on incident response (100 - 200 words)
+### ***an outline which states how it provides appropriate coverage for the incident which must refer to an authoritative source on incident response (100 - 200 words)***
 
 Link: https://cyber.gov.au/infrastructure/guides/strategies-to-mitigate-cyber-security-incidents/
 
-From the incident we know that the attacker have already hack into the router 
+From the incident we know that the attacker have already hack into the router because the hacker sent an blackmail email.
+
+Action that need to be perform:
+- The client would need to switch away the router
+- Request the security team to perform installation and network testing on the new router as well as set up a firewall to prevent unauthorised access
+- The router would need to be constantly patch to have the latest security protection
+- Sign up for a security incident response team to protect further future incident
 
 create an auditing checklist with FIVE items which includes:
 
 software and hardware configurations to be checked which support security controls and incident response procedures
 suggested penetration tests that should be conducted to verify security controls are in place to prevent the incident
-create a process, a list of steps, that should be followed should the incident occur, the process must include (200 - 300 words):
+
+- Ensure that the exploit router have been remove and not to be use anymore 
+- Request the security team to setup the new router as well as an extra router for work use only 
+- Add an additional physical firewall to protect the router
+- Hire penetration tester to test the network to heck for vulnarability
+- Sign up for an incident response team for future incident as well as security team to monitor the network monthly
+
+### ***create a process, a list of steps, that should be followed should the incident occur, the process must include (200 - 300 words):***
 
 A preamble which has an allocation of responsibilities to relevant persons
 specific details relating to the management, monitoring and auditing of software and hardware in the context of the incident
+
+Allocation of responsibilities toward the incident:
+
+- Responsible: Consultant
+- Accountable: Client
+- Consulted: Partner
+- Informed: Work
+
+Steps:
+
+1. First identify the cause of the issues by contacting a security team to perform a check on the house network
+2. After the check, the security team should be able to identify the problem in this incident would be the router
+3. The router would need to be unplug and remove
+4. Request a more secure router for the home network as well as the client should request one secure router with a more secure connection just for work use only
+5. After all the setup, the client should request for an additional layer of protection by installing a physical firewall for the router
+6. After all the hardware installation, the client should hire penetration tester to perform pen test on the router to check for vulnerabilities or potential issues
+7. Client should also follow the instruction issues by the pen test team to mitigate any potential vulnerabilities the router may have through patches or firmware update
+8. If wanted, the client could also install a dedicated system that would monitor the network using comersial software such as nessus to run daily or weekly scan for vulnerability and send a report for client as well as the security team
+
+
