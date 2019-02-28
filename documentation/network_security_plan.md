@@ -1,15 +1,12 @@
-
-
-
-Problem Scenario
+# Problem Scenario
 You are a security consultant who has been asked to develop a network security plan for a client who is a tech obsessive/early-adopter. The client has a high speed internet connection and both a wired and wireless network which connects many different devices throughout their home.
 
-Contextual Details
+# Contextual Details
 The client works in the finance sector as a senior executive and lives with their partner and two children. The dwelling is a house which has a backyard with a back fence that adjoins a public park. The distance from the dwelling to the back fence is approximately 20 metres.
 
 The power source and internet connection for the dwelling comes from overhead powerlines at the front of the house. There is no backup source of power. The wifi router is located on the kitchen bench. The home has a basic alarm system with motion detectors, but does not have phone home capability to a response company.
 
-Technical Details
+# Technical Details
 Router: TP-LINK AC750
 
 Wifi-range extenders: N/A, extended antenna attached to router with range well onto the street frontage and park.
@@ -52,7 +49,7 @@ Apple time machine - arbitary code execution through buffer overflow
 - There is memory corruption issues existed in DNS data parsing which would cause arbitary code execution (CVE-2015-7029)
 
 
-profile TWO potential attackers, and describe: (200 - 300 words for each profile)
+## profile TWO potential attackers, and describe: (200 - 300 words for each profile)
 
 Random hacker
 - Motivation: Just because they are interest to break into people network and feel the sense of achievement on breaking stuff
@@ -67,12 +64,12 @@ Physical burglar
 - Severity: This attack can be consider medium to severe because the burglar can be armed and harm the household member if there is member staying at home. Other than that, if the burglar decide to steal device that contain data, he can sell those data if there is data that is valuable. In contrast, if the burglar only steal gold or jewelery stuff then would not cause huge amount of damage would only only lose some asset.
 
 
-categorise the threats/issues you have identified and provide a statement which gives them an overall qualitative assessment of their security posture. (150 - 200 words)
+## categorise the threats/issues you have identified and provide a statement which gives them an overall qualitative assessment of their security posture. (150 - 200 words)
 
 The current of risk expose of the client is high based on the finding from question 1. We can see that most of the devices, or product that they use are vulnerable and there is no future support or further update to fix the issues of being unsafe. Other than that based on the assuming house floor plan layed out from scenario, we conclude that there is one that is highly catasrophic risk which is unlikely to happen yet not possible to change. The highly catasrophic risk is that the house only have one power grid which is visible to public and there is no backup power supply anywhere. If the power grid were be cut by attacker, any security feature of the house such as the alarm with motion detector or maybe the grandstream security product would not work, which then would cause a high risk to the client and his family. Besides that, since the scenario mention that the client and his family total to 4 member within the family would suggest that each of them hold one laptop. This mean that the client is using a laptop for both work and personal use which is a serious issue where anything happen to the laptop would cause potential leak of his company information due to not using encryption on laptop or others. The wireless router use within the household are not secure as it is and there is some security finding as well as it is extended toward the house area range which any people who passby would be able to search the wireless. This could lead to a mimic of same wifi name to trick the client or family member to connect to it. Last but not least, there are many IoT device within the house which may be vulnerable because most of the IoT device do not have firmware update after purchases as well as data would be store within the chipset of IoT device. If any person would retreive any of the IoT device would be able to get data or information about the house network.
 
 
-Analyse the security risks and outline the process of risk management, you must:
+## Analyse the security risks and outline the process of risk management, you must:
 outline the risk management process you will undertake to assess risks in plain-English. (200 - 300 words)
 
 In this part, we will be assessing the risk mention in question 1 using the 5 * 5 matrix to scale the risk in term of likelyhood and consequences. The rating of risk assessment total up to 25 point from 5 point of likelihood and 5 point of consequences. 1 point from likelihood mean low posibility to none of happening while 5 point of likelihood mean high chance to guarantee happening. While for 1 point of consequences means low consequences and 5 point of consequences rate means critical consequences. 
@@ -86,7 +83,7 @@ Risk 2: KRACK vulnerability
 KRACK vulnerability is found and potential vulnerable to all device which use WPA protection in their wifi network. The vulnerability work as long as they are within range and the device network is using WPA standard, this vulnerability would have high chance of suceeding in exploiting. However, this exploit only allow the attacker to view the traffic which is not encrypted with https and nothing else. This show that this vulnerability has a 5 point in likelihood while 2 point in consequences due to the limitation of what attacker can do and total up to 10 which is a low risk finding.
 
 
-identify and categorise THREE potentially valuable assets on the network, you must (400 - 500 words):
+## identify and categorise THREE potentially valuable assets on the network, you must (400 - 500 words):
 
 identify the type of asset and state why it is valuable
 
@@ -102,8 +99,8 @@ The router
 
 
 
-Create a risk management plan and security controls based on your threat model and assets on the network, you must:
-design two policies which outline security controls and requirements to mitigate TWO threats in your threat model. (300 - 400 words per policy)
+# Create a risk management plan and security controls based on your threat model and assets on the network, you must:
+## design two policies which outline security controls and requirements to mitigate TWO threats in your threat model. (300 - 400 words per policy)
 
 - Window 8.0 end of main-stream support
 This is a threats to the client work environment as any company data that is stored within the laptop would have high chance of being exploit. The laptop is use for both personal and work which should not be done in the first place due to potential malicious software installation for personal use which would exploit the laptop.
@@ -130,7 +127,7 @@ Policies and requirement to mitigate:
 8. Change the password to a strong and longer password which also not a commonly found password
 
 
-create a timeline and budget for the implementation of policies (200 - 300 words)
+## create a timeline and budget for the implementation of policies (200 - 300 words)
 
 Most of the policies would need to be completed within the timeline of one week to ensure the best possible security around the client. The budget would be varies depend on security implementation.
 
@@ -165,11 +162,11 @@ Budget:
 Rough total of the money to implement would total up to around 3000 intially and around 300 per month for paying work internet and incident response team
 
 
-write a plain-English explanation for the client relating to the timeline and budget for implementation of the risk management plan (150 - 200 words)
+## write a plain-English explanation for the client relating to the timeline and budget for implementation of the risk management plan (150 - 200 words)
 
 Incident response team is a must because it is like an insurance to protect the company asset that is store at the house which would need to pay regulary. This should be perform within one week is due to consideration of allocating the response team to have a check on the house and registering the necessary equipment. Besides, using only one laptop for both personal and work is a security risk as explain above and need to be done within one day time frame because of the risk. Thus, client would need to purchase a standard usable laptop with recommended security protection would cost up to around 2000 dollar with one piece of anti virus for extra layer of protection. Moving on to installing a work only network connect would be important for the client and should be complete within one week time frame because would need to call in a team to install hardware component and setting everything up. This is important for the reason being that if the client use home network to connect to the company internal network create another security issues for company because if the home network were to exploit would cause the company network to be in risk. Thus by seperating into work router and home router would prevent from additional risk to the company assuming that the client would not connect anything non-work related device to the work router.
 
-create a process for continuous review in the form of a list of steps to be followed to maintain the security controls you have designed (100 - 200 words)
+## create a process for continuous review in the form of a list of steps to be followed to maintain the security controls you have designed (100 - 200 words)
 
 Steps or action necessary to maintain security controls:
 - Constantly update the firmware of device or anything that is connect to the network to get the latest security patches.
@@ -180,17 +177,36 @@ Steps or action necessary to maintain security controls:
 - Client would need to monitor their children to ensure that they do not install any harmful software that may harm the home network
 
 
-provide evidence you have received feedback from a industry expert on your risk management plan, and how you have modified your approach based on feedback (notes on feedback or written feedback from industry expert in addition to 100 - 200 words on your response to this feedback)
+## provide evidence you have received feedback from a industry expert on your risk management plan, and how you have modified your approach based on feedback (notes on feedback or written feedback from industry expert in addition to 100 - 200 words on your response to this feedback)
 
 
 
-Design an auditing and incident response plan to handle a security incident affecting the network described in the Problem Scenario
+## Design an auditing and incident response plan to handle a security incident affecting the network described in the Problem Scenario
 
 Your Incident response plan must include:
 
-a description of the incident it will address (150 - 200 words)
+### a description of the incident it will address (150 - 200 words)
+
+One day there is an incident happen around the client house.
+
+- Someone broke into the client house through the back door. 
+- Before entering the compound, the attacker have stop the camera by destroying it from afar. 
+- Then he move into the house to start stealing
+- He stole some of the valuable stuff such as gold bar or jewellery and also went to the client machine.
+- He then start performing exploit on the 
+- When the client reach home from the family day trip, he found that there is no power to his house.
+- It was later that he found out about the incident where someone already broke into his house. 
+- When he is trying to find out what has been stolen but it seem that he only know that stuff like gold bar, jewellery and other accessories have been stolen.
+- He contact and report to the police about this case
+- Few day later after responding to the case, the house issues have been fixed. But he found something out of ordinary when he is working on home.
+- He then receive a blackmail email blackmailing him money for the data that suppose only he and the company have
+- He then call the company security team to report of the issues and seek for advice as this is a cyber security breach
 
 an outline which states how it provides appropriate coverage for the incident which must refer to an authoritative source on incident response (100 - 200 words)
+
+Link: https://cyber.gov.au/infrastructure/guides/strategies-to-mitigate-cyber-security-incidents/
+
+From the incident we know that the attacker have already hack into the router 
 
 create an auditing checklist with FIVE items which includes:
 
