@@ -81,7 +81,7 @@ outline the risk management process you will undertake to assess risks in plain-
 
 In this part, we will be assessing the risk mention in question 1 using the 5 * 5 matrix to scale the risk in term of likelyhood and consequences. The rating of risk assessment total up to 25 point from 5 point of likelihood and 5 point of consequences. 1 point from likelihood mean low posibility to none of happening while 5 point of likelihood mean high chance to guarantee happening. While for 1 point of consequences means low consequences and 5 point of consequences rate means critical consequences. 
 
-![risk-matrix](https://github.com/JiaChengOng96/Coder_Academy_Project_3/blob/master/documentation/matrix.png)
+![risk-matrix](https://github.com/JiaChengOng96/Coder_Academy_Project_3/blob/master/Task1_Network_Security_Plan/matrix.png)
 
 Risk 1: Window 8.0 end-of main stream support
 End of main stream support from microsoft team means that window 8.0 device would not be on the priority list of the support list and maybe would receive patches for vulnerability if the microsoft team have the capabilities. Through my research, there are many vulnerabilities found targeted window 8.0 which range from low to critical. This show that the risk have a 5 point of likelihood of happend while 4 point for consequences depend on average of vulnerability found mean total up to 20 point which conclude as a high risk to the client.
@@ -189,7 +189,7 @@ Steps or action necessary to maintain security controls:
 
 ### ***provide evidence you have received feedback from a industry expert on your risk management plan, and how you have modified your approach based on feedback (notes on feedback or written feedback from industry expert in addition to 100 - 200 words on your response to this feedback)***
 
-![Feedback](https://github.com/JiaChengOng96/Coder_Academy_Project_3/blob/master/documentation/feedback.PNG)
+![Feedback](https://github.com/JiaChengOng96/Coder_Academy_Project_3/blob/master/Task1_Network_Security_Plan/feedback.PNG)
 
 The image above show the feedback i got from my educator. For the window part i have not only fixed the minor issues, I have also added more information as well as link to list of potential emerging vulnerability on window 8.1 laptop. On top of that, I have also format it to show the common vulnerability group as well as emerging vulnerability group to show the priority as well as to answer the question. From the feedback, I have also fix some of the part to make it more readable.
 
