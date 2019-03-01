@@ -99,7 +99,7 @@ class Hangman():
         Visit here for more information:
         https://www.wikihow.com/Play-Hangman
         Visit here for this gameplay instruction
-        https://github.com/JiaChengOng96/Coder_Academy_Project_3/blob/master/README.md
+        https://github.com/JiaChengOng96/Coder_Academy_Project_3/blob/master/Task2_Peer2Peer/README.md
         """
 
         lbl_help = QLabel(instruction)

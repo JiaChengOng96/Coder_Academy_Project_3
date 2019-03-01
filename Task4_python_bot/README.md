@@ -22,8 +22,3 @@ See bot.py for command codes and their meaning. For example,
     These are the contents
 
 can be put into `command.txt`.
-
-# TODO
-
-* An install script
-* An uninstall script added to the bot
