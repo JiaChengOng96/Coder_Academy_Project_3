@@ -79,7 +79,7 @@ The current of risk expose of the client is high based on the finding from quest
 
 
 ## Analyse the security risks and outline the process of risk management, you must:
-outline the risk management process you will undertake to assess risks in plain-English. (200 - 300 words)
+### ***outline the risk management process you will undertake to assess risks in plain-English. (200 - 300 words)***
 
 In this part, we will be assessing the risk mention in question 1 using the 5 * 5 matrix to scale the risk in term of likelyhood and consequences. The rating of risk assessment total up to 25 point from 5 point of likelihood and 5 point of consequences. 1 point from likelihood mean low posibility to none of happening while 5 point of likelihood mean high chance to guarantee happening. While for 1 point of consequences means low consequences and 5 point of consequences rate means critical consequences. 
 
@@ -94,7 +94,7 @@ End of main stream support from microsoft team means that window 8.0 device woul
 KRACK vulnerability is found and potential vulnerable to all device which use WPA protection in their wifi network. The vulnerability work as long as they are within range and the device network is using WPA standard, this vulnerability would have high chance of suceeding in exploiting. However, this exploit only allow the attacker to view the traffic which is not encrypted with https and nothing else. This show that this vulnerability has a 5 point in likelihood while 2 point in consequences due to the limitation of what attacker can do and total up to 10 which is a low risk finding.
 
 
-## identify and categorise THREE potentially valuable assets on the network, you must (400 - 500 words):
+### identify and categorise THREE potentially valuable assets on the network, you must (400 - 500 words):
 
 identify the type of asset and state why it is valuable
 
