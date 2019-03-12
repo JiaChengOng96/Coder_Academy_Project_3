@@ -185,12 +185,19 @@ Incident response team is a must because it is like an insurance to protect the 
 ### ***create a process for continuous review in the form of a list of steps to be followed to maintain the security controls you have designed (100 - 200 words)***
 
 Steps or action necessary to maintain security controls:
+
+***Client responsible for:***
 - Constantly update the firmware of device or anything that is connect to the network to get the latest security patches.
 - never connect personal device to the work network and never connect work device to personal home network
 - Change the house network as well as device password every few month to prevent password bruteforce crack
-- Discuss for the company security team to have a monthly house security check to identify any new potential risk arise
+- Discuss with the company security team to have a monthly house security check to identify any new potential risk arise
 - Any new device or implementation would need to seek advice some security team to ensure safety of the house member
 - Client would need to monitor their children to ensure that they do not install any harmful software that may harm the home network
+
+***Network security team responsible for:***
+- Perform monthly network check of the client home network
+- Identify threat of the client household for any new equipment install or usage
+- Reminding client to change password and update firmware of the house network
 
 
 ### ***provide evidence you have received feedback from a industry expert on your risk management plan, and how you have modified your approach based on feedback (notes on feedback or written feedback from industry expert in addition to 100 - 200 words on your response to this feedback)***
