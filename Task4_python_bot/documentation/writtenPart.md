@@ -96,5 +96,7 @@ The log file which log all the authentication in `/var/log/auth.log` file and it
 As for future security incident, we could implement an automate software that would detect multiple failed attempt as ssh attack and would automatically block the ip address of the attacker such as using fail2ban. Fail2ban would ban the ip address of the attacker who fail to provide correct credential. One reason we do not ban the ip address forever because the ip address maybe own by other people after few month and is not the attacker. For more incident notification of ban, we can configure to have a daily report showing how is perform attack and log it as an informative alert rather than only ban and not notifying anything.
 
 By,
+
 *Ivan Ong*
+
 12 March 2019 1:00PM
